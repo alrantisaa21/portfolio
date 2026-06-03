@@ -14,6 +14,7 @@
       --border: #2a2a2e;
       --accent: #c9a96e;
       --accent2: #7eb8a4;
+      --accent3: #7b9fc7;
       --text: #e8e4df;
       --text-muted: #888884;
       --text-dim: #555552;
@@ -450,33 +451,219 @@
       font-size: 1rem;
     }
 
-    /* ======== EXPERIENCE ======== */
-    .exp-list { display: flex; flex-direction: column; gap: 2.5rem; }
-    .exp-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
+    /* ======== EXPERIENCE (NEW DESIGN) ======== */
+    #experience { background: var(--bg); }
+
+    .exp-list-new {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
-    .exp-item:last-child { border-bottom: none; }
-    .exp-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
-    .exp-company { font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); }
-    .exp-role { font-family: var(--font-serif); font-size: 1.5rem; color: var(--text); margin-bottom: 0.3rem; }
-    .exp-dept { font-size: 0.8rem; color: var(--accent2); font-family: var(--font-mono); margin-bottom: 1rem; letter-spacing: 0.05em; }
-    .exp-desc { color: var(--text-muted); font-size: 0.87rem; margin-bottom: 1.2rem; line-height: 1.8; text-align: justify; }
-    .exp-photos { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.2rem; }
-    .exp-photo {
-      width: 90px;
-      height: 70px;
-      object-fit: cover;
+
+    .exp-card {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+    }
+    .exp-card:last-child { border-bottom: none; }
+
+    .exp-card-left { flex: 1; }
+
+    /* Company label row */
+    .exp-company-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .exp-company-label span {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .exp-company-name { color: var(--accent); }
+    .exp-sep { color: var(--text-dim); }
+    .exp-company-type { color: var(--text-dim); }
+    .exp-company-loc { color: var(--text-dim); }
+
+    /* Title row */
+    .exp-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .exp-logo-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+    .exp-title-info { flex: 1; }
+    .exp-role-title {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .exp-sub-title {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+    }
+
+    /* Right column: period + badge */
+    .exp-card-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      min-width: 160px;
+    }
+    .exp-period-new {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .exp-type-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
       border-radius: 3px;
+      white-space: nowrap;
+    }
+    .badge-internship {
+      background: rgba(201,169,110,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(201,169,110,0.3);
+    }
+    .badge-parttime {
+      background: rgba(126,184,164,0.12);
+      color: var(--accent2);
+      border: 1px solid rgba(126,184,164,0.3);
+    }
+    .badge-volunteer {
+      background: rgba(123,159,199,0.12);
+      color: var(--accent3);
+      border: 1px solid rgba(123,159,199,0.3);
+    }
+
+    /* Description */
+    .exp-desc-new {
+      color: var(--text-muted);
+      font-size: 0.87rem;
+      line-height: 1.8;
+      margin: 1.2rem 0 1.2rem 0;
+      text-align: justify;
+    }
+
+    /* Bullet list */
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .exp-bullets li {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .exp-bullets li::before {
+      content: '›';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 1rem;
+      margin-top: 0.05rem;
+    }
+    .exp-bullets .hl {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .exp-bullets .hl2 {
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    .exp-bullets .hl3 {
+      color: var(--accent3);
+      font-weight: 600;
+    }
+
+    /* Skill tags row */
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .exp-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface2);
+      letter-spacing: 0.04em;
+    }
+
+    /* Photos */
+    .exp-photos-new { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .exp-photo-new {
+      width: 120px;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 4px;
       border: 1px solid var(--border);
       cursor: pointer;
       transition: all 0.25s;
       filter: grayscale(20%);
     }
-    .exp-photo:hover { transform: scale(1.05); border-color: var(--accent); filter: none; }
+    .exp-photo-new:hover { transform: scale(1.05); border-color: var(--accent); filter: none; }
+
+    /* Certificate thumbnail */
+    .exp-cert-thumb {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .exp-cert-img {
+      width: 120px;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+      filter: grayscale(10%);
+    }
+    .exp-cert-img:hover { border-color: var(--accent); filter: none; transform: scale(1.03); }
 
     /* ======== SKILLS ======== */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
@@ -622,7 +809,8 @@
       footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1rem; }
-      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-card { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-card-right { align-items: flex-start; flex-direction: row; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .honor-item { grid-template-columns: 1fr; }
       .edu-card-header { grid-template-columns: 80px 1fr auto; gap: 0.8rem; padding: 1.2rem; }
@@ -652,7 +840,7 @@
   </ul>
 </nav>
 
-<!-- INTRODUCTION (hero lama) -->
+<!-- INTRODUCTION (hero) -->
 <section class="hero" id="introduction" style="border-top: none;">
   <div class="hero-left">
     <p class="hero-label">Industrial Engineering · UNS Surakarta</p>
@@ -680,7 +868,7 @@
   </div>
 </section>
 
-<!-- ABOUT ME (baru) -->
+<!-- ABOUT ME -->
 <section id="about">
   <div class="about-section-label">
     <span>Who I Am</span>
@@ -688,7 +876,6 @@
   <h2 class="about-title">About <em>Me</em></h2>
 
   <div class="about-grid">
-    <!-- Kiri: bio -->
     <div class="about-bio">
       <p>
         I am a final-year Industrial Engineering student at Sebelas Maret University with a strong interest in Supply Chain Management, Operations Excellence, Work System Design, and Ergonomics. Through professional internships and academic projects, I have gained hands-on experience in Inventory Control, Production Planning, Procurement, ERP-based operations, and business process improvement.
@@ -701,7 +888,6 @@
       </p>
     </div>
 
-    <!-- Kanan: info cards -->
     <div class="about-info-list">
       <div class="about-info-row">
         <span class="about-info-label">Location</span>
@@ -822,96 +1008,250 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- ======== EXPERIENCE (NEW DESIGN) ======== -->
 <section id="experience">
   <div class="section-header">
     <span class="section-num">02</span>
     <h2 class="section-title">Experience</h2>
   </div>
-  <div class="exp-list">
 
-    <!-- LPSKE Assistant -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <p class="exp-period">2023 – 2025</p>
-        <p class="exp-company">UNS · Surakarta</p>
-      </div>
-      <div class="exp-content">
-        <h3 class="exp-role">Laboratory Assistant</h3>
-        <p class="exp-dept">Work System Design &amp; Ergonomics Laboratory (LPSKE)</p>
-        <p class="exp-desc">
-          Serving as a Laboratory Assistant at LPSKE, responsible for managing practicum sessions, developing educational modules, guiding students in ergonomic tools, and overseeing laboratory financial operations as Treasurer.
+  <div class="exp-list-new">
 
-Supervised and coordinated practicum sessions for 100+ undergraduate students per semester, ensuring operational readiness and academic quality standards
-Developed and standardized 4+ practicum modules (including PPTI 1), ensuring alignment with the most current curriculum and industry standards
-Guided students in time study methods, ergonomic risk assessment, and analysis tools including ErgoFellow and Kinovea
-Managed laboratory financial records and budgets as Treasurer, ensuring accurate and transparent reporting.
-        </p>
-        <div class="exp-photos">
-          <img src="lpske_lab.jpg"       class="exp-photo" alt="LPSKE Laboratory"  onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity2.jpg" class="exp-photo" alt="LPSKE Activity 2"  onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity3.jpg" class="exp-photo" alt="LPSKE Activity 3"  onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity4.jpg" class="exp-photo" alt="LPSKE Activity 4"  onclick="openLightbox(this.src)"/>
-          <img src="lpske_meeting.jpg"   class="exp-photo" alt="LPSKE Meeting"     onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity6.jpg" class="exp-photo" alt="LPSKE Activity 6"  onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity7.jpg" class="exp-photo" alt="LPSKE Activity 7"  onclick="openLightbox(this.src)"/>
-          <img src="lpske_module.jpg"    class="exp-photo" alt="Module Creation"   onclick="openLightbox(this.src)"/>
+    <!-- 1. PAKO GROUP -->
+    <div class="exp-card">
+      <div class="exp-card-left">
+        <div class="exp-company-label">
+          <span class="exp-company-name">PAKO GROUP</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-type">AUTOMOTIVE MANUFACTURING</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-loc">SUKOHARJO, INDONESIA</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Intern PT PP -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <p class="exp-period">Feb – Mar 2025</p>
-        <p class="exp-company">PT PP (Persero) Tbk</p>
-      </div>
-      <div class="exp-content">
-        <h3 class="exp-role">Industrial Engineering Intern</h3>
-        <p class="exp-dept">Divisi EPC · Proyek Dermaga Biak 50.000 DWT</p>
-        <p class="exp-desc">
-          Contributed to procurement operations in a large-scale 50,000 DWT dock infrastructure project, gaining practical experience in vendor management, contract compliance, and cross-departmental coordination within Indonesia's leading state-owned construction company.
-
-Supported end-to-end procurement for a 50,000 DWT dock construction project, collaborating with engineering, logistics, finance, and project management teams
-Monitored procurement timelines and material delivery status, ensuring alignment with project scheduling milestones
-Reviewed and verified 15+ vendor contracts and POs, ensuring 100% compliance with scheduling requirements and procurement SOPs
-Assisted in vendor evaluation and communication, contributing to efficient supplier selection and order processing
-Prepared procurement progress reports and documentation supporting project management decision-making.
-        </p>
-        <div class="exp-photos">
-          <img src="ptpp_foto.jpg" class="exp-photo" alt="PT PP Internship" onclick="openLightbox(this.src)"/>
+        <div class="exp-title-row">
+          <div class="exp-logo-box">PAKO<br/>GROUP</div>
+          <div class="exp-title-info">
+            <div class="exp-role-title">PPIC Intern — Inventory Control Division</div>
+            <div class="exp-sub-title">PT Inkoasku · Design &amp; Manufacturer of Wheel Rim &amp; Automotive Components</div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Intern PAKO GROUP -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <p class="exp-period">Jan – May 2026</p>
-        <p class="exp-company">PT Inkoasku · PAKO GROUP</p>
-      </div>
-      <div class="exp-content">
-        <h3 class="exp-role">Inventory Control Intern</h3>
-        <p class="exp-dept">Inventory Control Department</p>
-        <p class="exp-desc">
+        <p class="exp-desc-new">
           Worked within the Production Planning and Inventory Control (PPIC) division of PAKO Group, focusing on inventory control, material flow management, and MRP-driven operational improvement in a high-volume automotive manufacturing environment.
-
-Analyzed end-to-end workflow in Inventory Control with emphasis on Material Requirement Planning (MRP) and Delivery Note (DN) reconciliation to ensure accurate material availability
-Supported daily Inventory Control activities: MRP execution, DN tracking, and real-time material flow monitoring across production lines
-Identified and documented 3+ supply discrepancies per month, proposing corrective actions that reduced average lead time by 66%
-Collaborated with cross-functional teams (procurement, warehouse, production) to streamline material replenishment and improve scheduling accuracy
-Utilized ERP systems to extract, analyze, and report inventory data supporting management decision-making.
         </p>
-        <div class="exp-photos">
-          <img src="pako_foto1.jpg" class="exp-photo" alt="PAKO GROUP Activity 1" onclick="openLightbox(this.src)"/>
-          <img src="pako_foto2.jpg" class="exp-photo" alt="PAKO GROUP Activity 2" onclick="openLightbox(this.src)"/>
-          <img src="pako_foto3.jpg" class="exp-photo" alt="PAKO GROUP Activity 3" onclick="openLightbox(this.src)"/>
-          <img src="pako_foto4.jpg" class="exp-photo" alt="PAKO GROUP Activity 4" onclick="openLightbox(this.src)"/>
+        <ul class="exp-bullets">
+          <li>Analyzed end-to-end workflow in Inventory Control with emphasis on <span class="hl">Material Requirement Planning (MRP)</span> and <span class="hl">Delivery Note (DN)</span> reconciliation to ensure accurate material availability</li>
+          <li>Supported daily Inventory Control activities: MRP execution, DN tracking, and real-time material flow monitoring across production lines</li>
+          <li>Identified and documented <span class="hl">3+ supply discrepancies per month</span>, proposing corrective actions that reduced average lead time by <span class="hl">66%</span></li>
+          <li>Collaborated with cross-functional teams (procurement, warehouse, production) to streamline material replenishment and improve scheduling accuracy</li>
+          <li>Utilized ERP systems to extract, analyze, and report inventory data supporting management decision-making</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Inventory Control</span>
+          <span class="exp-tag">MRP</span>
+          <span class="exp-tag">ERP System</span>
+          <span class="exp-tag">Supply Chain Ops</span>
+          <span class="exp-tag">Process Improvement</span>
+          <span class="exp-tag">Data Analysis</span>
         </div>
+        <div class="exp-photos-new">
+          <img src="pako_foto1.jpg" class="exp-photo-new" alt="PAKO GROUP Activity 1" onclick="openLightbox(this.src)"/>
+          <img src="pako_foto2.jpg" class="exp-photo-new" alt="PAKO GROUP Activity 2" onclick="openLightbox(this.src)"/>
+          <img src="pako_foto3.jpg" class="exp-photo-new" alt="PAKO GROUP Activity 3" onclick="openLightbox(this.src)"/>
+          <img src="pako_foto4.jpg" class="exp-photo-new" alt="PAKO GROUP Activity 4" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+      <div class="exp-card-right">
+        <span class="exp-period-new">JAN 2026 — MAY 2026</span>
+        <span class="exp-type-badge badge-internship">INTERNSHIP · 5 MONTHS</span>
       </div>
     </div>
 
-  </div>
+    <!-- 2. PT PP -->
+    <div class="exp-card">
+      <div class="exp-card-left">
+        <div class="exp-company-label">
+          <span class="exp-company-name">PT PP (PERSERO) TBK</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-type">STATE-OWNED CONSTRUCTION</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-loc">JAKARTA, INDONESIA</span>
+        </div>
+        <div class="exp-title-row">
+          <div class="exp-logo-box">PT PP</div>
+          <div class="exp-title-info">
+            <div class="exp-role-title">Procurement Intern</div>
+            <div class="exp-sub-title">50,000 DWT Dock Construction Project · Cross-Functional Procurement Team</div>
+          </div>
+        </div>
+        <p class="exp-desc-new">
+          Contributed to procurement operations in a large-scale 50,000 DWT dock infrastructure project, gaining practical experience in vendor management, contract compliance, and cross-departmental coordination within Indonesia's leading state-owned construction company.
+        </p>
+        <ul class="exp-bullets">
+          <li>Supported end-to-end procurement for a <span class="hl">50,000 DWT dock construction project</span>, collaborating with engineering, logistics, finance, and project management teams</li>
+          <li>Monitored procurement timelines and material delivery status, ensuring alignment with project scheduling milestones</li>
+          <li>Reviewed and verified <span class="hl">15+ vendor contracts and POs</span>, ensuring 100% compliance with scheduling requirements and procurement SOPs</li>
+          <li>Assisted in vendor evaluation and communication, contributing to efficient supplier selection and order processing</li>
+          <li>Prepared procurement progress reports and documentation supporting project management decision-making</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Procurement</span>
+          <span class="exp-tag">Vendor Management</span>
+          <span class="exp-tag">Contract Review</span>
+          <span class="exp-tag">Project Coordination</span>
+          <span class="exp-tag">Reporting</span>
+        </div>
+        <div class="exp-photos-new">
+          <img src="ptpp_foto.jpg" class="exp-photo-new" alt="PT PP Internship" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+      <div class="exp-card-right">
+        <span class="exp-period-new">FEB 2025 — MAR 2025</span>
+        <span class="exp-type-badge badge-internship">INTERNSHIP · 2 MONTHS</span>
+      </div>
+    </div>
+
+    <!-- 3. LPSKE / WORK SYSTEM DESIGN LAB -->
+    <div class="exp-card">
+      <div class="exp-card-left">
+        <div class="exp-company-label">
+          <span class="exp-company-name">WORK SYSTEM DESIGN &amp; ERGONOMICS LABORATORY</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-type">SEBELAS MARET UNIVERSITY</span>
+        </div>
+        <div class="exp-title-row">
+          <div class="exp-logo-box">LPSKE<br/>UNS</div>
+          <div class="exp-title-info">
+            <div class="exp-role-title">Laboratory Assistant — Practicum Division &amp; Treasurer</div>
+            <div class="exp-sub-title">Department of Industrial Engineering · Surakarta, Indonesia</div>
+          </div>
+        </div>
+        <p class="exp-desc-new">
+          Serving as a Laboratory Assistant at LPSKE, responsible for managing practicum sessions, developing educational modules, guiding students in ergonomic tools, and overseeing laboratory financial operations as Treasurer.
+        </p>
+        <ul class="exp-bullets">
+          <li>Supervised and coordinated practicum sessions for <span class="hl2">100+ undergraduate students per semester</span>, ensuring operational readiness and academic quality standards</li>
+          <li>Developed and standardized <span class="hl2">4+ practicum modules</span> (including PPTI 1), ensuring alignment with the most current curriculum and industry standards</li>
+          <li>Guided students in time study methods, ergonomic risk assessment, and analysis tools including <span class="hl2">ErgoFellow</span> and <span class="hl2">Kinovea</span></li>
+          <li>Managed laboratory financial records and budgets as <span class="hl2">Treasurer</span>, ensuring accurate and transparent reporting</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Ergonomics</span>
+          <span class="exp-tag">Work System Design</span>
+          <span class="exp-tag">ErgoFellow</span>
+          <span class="exp-tag">Kinovea</span>
+          <span class="exp-tag">Teaching</span>
+          <span class="exp-tag">Financial Management</span>
+        </div>
+        <div class="exp-photos-new">
+          <img src="lpske_lab.jpg"       class="exp-photo-new" alt="LPSKE Laboratory"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity2.jpg" class="exp-photo-new" alt="LPSKE Activity 2"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity3.jpg" class="exp-photo-new" alt="LPSKE Activity 3"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity4.jpg" class="exp-photo-new" alt="LPSKE Activity 4"  onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+      <div class="exp-card-right">
+        <span class="exp-period-new">JUN 2024 — PRESENT</span>
+        <span class="exp-type-badge badge-parttime">PART-TIME · 1+ YR</span>
+      </div>
+    </div>
+
+    <!-- 4. PLUT KUMKM TABALONG -->
+    <div class="exp-card">
+      <div class="exp-card-left">
+        <div class="exp-company-label">
+          <span class="exp-company-name">PLUT KUMKM TABALONG</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-type">GOVERNMENT AGENCY</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-loc">TABALONG, KALIMANTAN SELATAN</span>
+        </div>
+        <div class="exp-title-row">
+          <div class="exp-logo-box">PLUT<br/>KUMKM</div>
+          <div class="exp-title-info">
+            <div class="exp-role-title">Digital Marketing — Social Media Admin</div>
+            <div class="exp-sub-title">Dinas Koperasi, UKM, Perindustrian dan Perdagangan Kabupaten Tabalong</div>
+          </div>
+        </div>
+        <p class="exp-desc-new">
+          Managed digital marketing and social media operations for a government-affiliated SME development center, supporting local entrepreneurs in improving their online presence and brand visibility.
+        </p>
+        <ul class="exp-bullets">
+          <li>Created and managed social media content across multiple platforms to increase brand awareness for local SME entrepreneurs supported by PLUT KUMKM Tabalong</li>
+          <li>Monitored engagement metrics and optimized content strategies for improved reach and impact</li>
+          <li>Supported the agency's mission of empowering local SMEs through modern digital communication tools</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Digital Marketing</span>
+          <span class="exp-tag">Social Media</span>
+          <span class="exp-tag">Content Creation</span>
+          <span class="exp-tag">Analytics</span>
+        </div>
+        <div class="exp-cert-thumb">
+          <a href="https://drive.google.com/file/d/1lTcADKIZWP9yq-GaTx9JaRzbcgZ7K_Fh/view?usp=sharing" target="_blank">
+            <img
+              src="https://drive.google.com/thumbnail?id=1lTcADKIZWP9yq-GaTx9JaRzbcgZ7K_Fh&sz=w400"
+              class="exp-cert-img"
+              alt="Sertifikat Magang PLUT KUMKM Tabalong"
+              onerror="this.style.display='none'"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="exp-card-right">
+        <span class="exp-period-new">AUG 2023 — NOV 2023</span>
+        <span class="exp-type-badge badge-internship">INTERNSHIP · 4 MONTHS</span>
+      </div>
+    </div>
+
+    <!-- 5. METALEARN INDONESIA -->
+    <div class="exp-card">
+      <div class="exp-card-left">
+        <div class="exp-company-label">
+          <span class="exp-company-name">METALEARN INDONESIA</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-type">EDTECH PLATFORM</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-company-loc">ONLINE</span>
+        </div>
+        <div class="exp-title-row">
+          <div class="exp-logo-box">META<br/>LEARN<br/>.ID</div>
+          <div class="exp-title-info">
+            <div class="exp-role-title">SNBT Tutor — Volunteer Mentor (Quantitative Reasoning)</div>
+            <div class="exp-sub-title">No. 90/02/VOLUNTEER/03/2023</div>
+          </div>
+        </div>
+        <p class="exp-desc-new">
+          Served as a Volunteer Mentor at Metalearn Indonesia, an online education platform, delivering structured tutoring and academic coaching to students across Indonesia preparing for the UTBK-SNBT national university entrance examination.
+        </p>
+        <ul class="exp-bullets">
+          <li>Taught and mentored <span class="hl3">30+ students</span> across Indonesia for UTBK-SNBT, specializing in <span class="hl3">quantitative reasoning</span> and mathematical problem-solving</li>
+          <li>Delivered <span class="hl3">10+ hours per week</span> of structured virtual tutoring and personalized guidance via Zoom and online platforms</li>
+          <li>Designed learning materials adapted to diverse student ability levels, improving comprehension and exam readiness</li>
+          <li>Received Certificate of Appreciation from Metalearn Indonesia (01 March – 31 May 2023)</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Tutoring</span>
+          <span class="exp-tag">Mentoring</span>
+          <span class="exp-tag">Curriculum Design</span>
+          <span class="exp-tag">Online Teaching</span>
+        </div>
+        <div class="exp-cert-thumb">
+          <a href="https://drive.google.com/file/d/14qgf3gfokUegjJEhG-ezre-0zt_gRPbJ/view?usp=sharing" target="_blank">
+            <img
+              src="https://drive.google.com/thumbnail?id=14qgf3gfokUegjJEhG-ezre-0zt_gRPbJ&sz=w400"
+              class="exp-cert-img"
+              alt="Sertifikat Volunteer Metalearn Indonesia"
+              onerror="this.style.display='none'"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="exp-card-right">
+        <span class="exp-period-new">MAR 2023 — MAY 2023</span>
+        <span class="exp-type-badge badge-volunteer">VOLUNTEER · 3 MONTHS</span>
+      </div>
+    </div>
+
+  </div><!-- end exp-list-new -->
 </section>
 
 <!-- SKILLS -->
@@ -988,7 +1328,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
   </div>
   <div class="org-grid">
 
-    <!-- LPSKE -->
     <div class="org-card">
       <div class="org-photos-grid">
         <img src="lpske_lab.jpg"       class="org-photo" alt="LPSKE"          onclick="openLightbox(this.src)"/>
@@ -1004,7 +1343,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
       </div>
     </div>
 
-    <!-- INVENTOR -->
     <div class="org-card">
       <div class="org-photos-grid">
         <img src="inventor1.jpg" class="org-photo" alt="INVENTOR Competition" onclick="openLightbox(this.src)"/>
@@ -1020,7 +1358,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
       </div>
     </div>
 
-    <!-- Jalur Cerdas -->
     <div class="org-card">
       <div class="org-photos-grid">
         <img src="jalur_cerdas1.jpg" class="org-photo" alt="Jalur Cerdas 1" onclick="openLightbox(this.src)"/>
