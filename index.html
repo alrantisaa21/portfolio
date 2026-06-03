@@ -66,7 +66,7 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ======== HERO ======== */
+    /* ======== HERO / INTRODUCTION ======== */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -189,6 +189,89 @@
       color: var(--text);
       letter-spacing: -0.01em;
     }
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ======== ABOUT ME ======== */
+    #about {
+      background: var(--surface);
+    }
+    .about-section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .about-section-label::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+    .about-section-label span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .about-title {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+    .about-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-bio p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.9;
+      text-align: justify;
+      margin-bottom: 1.4rem;
+    }
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-info-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .about-info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-info-row:last-child { border-bottom: none; }
+    .about-info-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .about-info-value {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text);
+      text-align: right;
+      font-weight: 500;
+    }
 
     /* ======== EDUCATION ======== */
     .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
@@ -279,8 +362,6 @@
     }
     .project-link:hover { color: #e0be85; gap: 0.8rem; }
     .project-link i { font-size: 0.7rem; }
-
-    /* Project card: no image, just drive link */
     .project-card.no-img .project-info { border-top: 3px solid var(--accent); }
 
     /* ======== HONORS ======== */
@@ -383,6 +464,7 @@
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .honor-item { grid-template-columns: 1fr; }
       .cert-drive-iframe { height: 420px; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
   </style>
 </head>
@@ -392,6 +474,7 @@
 <nav>
   <a href="#" class="nav-brand">Alrantisa Amiena Raisa</a>
   <ul class="nav-links">
+    <li><a href="#introduction">Introduction</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -404,8 +487,8 @@
   </ul>
 </nav>
 
-<!-- HERO / ABOUT -->
-<section class="hero" id="about">
+<!-- INTRODUCTION (hero lama) -->
+<section class="hero" id="introduction" style="border-top: none;">
   <div class="hero-left">
     <p class="hero-label">Industrial Engineering · UNS Surakarta</p>
     <h1 class="hero-name">Alrantisa<br/><em>Amiena Raisa</em></h1>
@@ -429,6 +512,69 @@
   </div>
   <div class="hero-right">
     <img src="foto_profil.jpg" class="hero-img" alt="Alrantisa Amiena Raisa"/>
+  </div>
+</section>
+
+<!-- ABOUT ME (baru) -->
+<section id="about">
+  <div class="about-section-label">
+    <span>Who I Am</span>
+  </div>
+  <h2 class="about-title">About <em>Me</em></h2>
+
+  <div class="about-grid">
+    <!-- Kiri: bio -->
+    <div class="about-bio">
+      <p>
+        I am a final-year Industrial Engineering student at Sebelas Maret University with a strong interest in Supply Chain Management, Operations Excellence, Work System Design, and Ergonomics. Through professional internships and academic projects, I have gained hands-on experience in Inventory Control, Production Planning, Procurement, ERP-based operations, and business process improvement.
+      </p>
+      <p>
+        My experience at PAKO Group and PT PP (Persero) Tbk has strengthened my ability to analyze operational challenges, manage inventory-related processes, develop monitoring solutions, and support data-driven decision making. I am passionate about optimizing systems, improving efficiency, and creating sustainable operational value through analytical thinking and continuous improvement.
+      </p>
+      <p>
+        In addition to my technical expertise, I have developed leadership, communication, and mentoring skills as a Laboratory Assistant and SNBT Tutor. I aspire to contribute as a Supply Chain and Operations Professional by delivering innovative solutions that drive organizational performance and operational excellence.
+      </p>
+    </div>
+
+    <!-- Kanan: info cards -->
+    <div class="about-info-list">
+      <div class="about-info-row">
+        <span class="about-info-label">Location</span>
+        <span class="about-info-value">Surakarta, Indonesia</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">University</span>
+        <span class="about-info-value">Sebelas Maret University</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">Major</span>
+        <span class="about-info-value">Industrial Engineering</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">GPA</span>
+        <span class="about-info-value">3.55 / 4.00</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">Status</span>
+        <span class="about-info-value">Final Year Student</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">Languages</span>
+        <span class="about-info-value">Indonesian · English</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">Interests</span>
+        <span class="about-info-value">Supply Chain, HSSE, Ergonomics</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">Email</span>
+        <span class="about-info-value">alrantisaar@gmail.com</span>
+      </div>
+      <div class="about-info-row">
+        <span class="about-info-label">Phone</span>
+        <span class="about-info-value">+62 888 1237 432</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -677,7 +823,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
   </div>
   <div class="projects-grid">
 
-    <!-- 1. IC Monitoring Dashboard – cover dari Google Drive, ada link ke capstone -->
     <div class="project-card">
       <img
         src="https://drive.google.com/thumbnail?id=1f5DoKYGZv56v3QD9MQPQw9Rxm7SbcCZG&sz=w800"
@@ -693,7 +838,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
       </div>
     </div>
 
-    <!-- 2. Work System Redesign – judul diubah jadi Thesis, tanpa gambar, ada link Drive -->
     <div class="project-card no-img">
       <div class="project-info">
         <p class="project-type">Thesis · Work System Design</p>
@@ -705,7 +849,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
       </div>
     </div>
 
-    <!-- 3. Mental Workload Analysis – tanpa gambar, ada link Drive -->
     <div class="project-card no-img">
       <div class="project-info">
         <p class="project-type">KP Report · Mental Workload Analysis</p>
@@ -717,7 +860,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
       </div>
     </div>
 
-    <!-- 4. Practicum Module -->
     <div class="project-card">
       <img src="lpske_module.jpg" class="project-img" alt="Module Development"/>
       <div class="project-info">
@@ -780,7 +922,7 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
   </div>
 </section>
 
-<!-- CERTIFICATE — Google Drive embed -->
+<!-- CERTIFICATE -->
 <section id="certificate">
   <div class="section-header">
     <span class="section-num">07</span>
@@ -826,7 +968,6 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
         <i class="fas fa-envelope"></i>
         <span>alrantisaar@gmail.com</span>
       </a>
-      <!-- LinkedIn URL diperbarui -->
       <a href="https://www.linkedin.com/in/alrantisaar" target="_blank" class="contact-link">
         <i class="fab fa-linkedin"></i>
         <span>linkedin.com/in/alrantisaar</span>
