@@ -274,19 +274,181 @@
     }
 
     /* ======== EDUCATION ======== */
-    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .edu-section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .edu-section-label::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+    .edu-section-label span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .edu-big-title {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
     .edu-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 2rem;
-      border-radius: 4px;
+      border-radius: 6px;
+      overflow: hidden;
       transition: border-color 0.25s;
     }
-    .edu-card:hover { border-color: var(--accent); }
-    .edu-degree { font-family: var(--font-serif); font-size: 1.4rem; color: var(--text); margin-bottom: 0.4rem; }
-    .edu-school { color: var(--accent); font-size: 0.85rem; font-family: var(--font-mono); margin-bottom: 0.3rem; }
-    .edu-period { color: var(--text-dim); font-size: 0.78rem; font-family: var(--font-mono); margin-bottom: 1rem; }
-    .edu-desc { color: var(--text-muted); font-size: 0.87rem; text-align: justify; }
+    .edu-card:hover { border-color: rgba(201,169,110,0.4); }
+    .edu-card-header {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .edu-card-header:hover { background: var(--surface2); }
+    .edu-period-col {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .edu-main-col {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .edu-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: #fff;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .edu-logo-placeholder {
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+    .edu-name {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .edu-degree-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+    }
+    .edu-right-col {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .edu-badge {
+      border: 1.5px solid var(--accent2);
+      border-radius: 4px;
+      padding: 0.4rem 0.8rem;
+      text-align: center;
+      min-width: 72px;
+    }
+    .edu-badge-value {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      display: block;
+      line-height: 1.2;
+    }
+    .edu-badge-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .edu-toggle-icon {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      transition: transform 0.25s, color 0.2s;
+      width: 16px;
+      text-align: center;
+    }
+    .edu-card.open .edu-toggle-icon {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+    .edu-card-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      border-top: 0px solid var(--border);
+    }
+    .edu-card.open .edu-card-body {
+      max-height: 600px;
+      border-top: 1px solid var(--border);
+    }
+    .edu-card-body-inner {
+      padding: 1.4rem 2rem 1.8rem 2rem;
+    }
+    .edu-activities-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .edu-activities-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .edu-activities-list li {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .edu-activities-list li::before {
+      content: '›';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+      font-size: 1rem;
+    }
 
     /* ======== EXPERIENCE ======== */
     .exp-list { display: flex; flex-direction: column; gap: 2.5rem; }
@@ -463,6 +625,9 @@
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .honor-item { grid-template-columns: 1fr; }
+      .edu-card-header { grid-template-columns: 80px 1fr auto; gap: 0.8rem; padding: 1.2rem; }
+      .edu-big-title { font-size: 2.2rem; }
+      .edu-period-col { font-size: 0.7rem; }
       .cert-drive-iframe { height: 420px; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
@@ -580,23 +745,80 @@
 
 <!-- EDUCATION -->
 <section id="education">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Education</h2>
-  </div>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <p class="edu-school">Sebelas Maret University</p>
-      <h3 class="edu-degree">Bachelor of Industrial Engineering</h3>
-      <p class="edu-period">2022 – 2026 (Expected)</p>
-      <p class="edu-desc">Program Studi Sarjana Teknik Industri, Fakultas Teknik. Focus on Work System Design, Ergonomics, Supply Chain, and Operations Research. GPA: 3.55/4.0</p>
+  <div class="edu-section-label"><span>Academic Background</span></div>
+  <h2 class="edu-big-title">Education</h2>
+
+  <div class="edu-list">
+
+    <!-- UNS -->
+    <div class="edu-card open" id="edu-uns">
+      <div class="edu-card-header" onclick="toggleEdu('edu-uns')">
+        <div class="edu-period-col">2022 — 2026</div>
+        <div class="edu-main-col">
+          <img src="logo_uns.png" class="edu-logo" alt="UNS Logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+          <div class="edu-logo-placeholder" style="display:none;">UNS</div>
+          <div>
+            <div class="edu-name">Sebelas Maret University (UNS)</div>
+            <div class="edu-degree-sub">Bachelor of Industrial Engineering · Surakarta, Indonesia</div>
+          </div>
+        </div>
+        <div class="edu-right-col">
+          <div class="edu-badge">
+            <span class="edu-badge-value">3.55</span>
+            <span class="edu-badge-label">GPA / 4.00</span>
+          </div>
+          <span class="edu-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+        </div>
+      </div>
+      <div class="edu-card-body">
+        <div class="edu-card-body-inner">
+          <p class="edu-activities-label">Activities &amp; Involvement</p>
+          <ul class="edu-activities-list">
+            <li>Laboratory Assistant — Work System Design &amp; Ergonomics Laboratory (LPSKE), Jun 2024–Present: Treasurer &amp; Staff of Practicum Division; supervised 100+ students per semester, developed 4+ practicum modules</li>
+            <li>Committee Member — INVENTOR (Student Orientation, HMTI UNS) 2024: Group Assistant, mentoring new IE students</li>
+            <li>Committee Member — IDEA (IE Anniversary, HMTI UNS) 2024: Consumption Division</li>
+            <li>Volunteer Mentor — Jalur Cerdas Indonesia (2023): mentored 10,000+ students for PTN entrance exams</li>
+            <li>Published paper at IDEC 2025 National Conference (ISSN: 2579-6429): "Analisis Pengendalian Kualitas Produk IB079RA di PT Surya Toto Indonesia TBK"</li>
+            <li>Semifinalist — Renewable Energy Innovation Project Competition (REIP) 2023, Surabaya</li>
+            <li>Certified in Occupational Health and Safety (K3/OHS) by BNSP, issued February 2026</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="edu-card">
-      <p class="edu-school">SMA Negeri 1 Tangerang</p>
-      <h3 class="edu-degree">Senior High School</h3>
-      <p class="edu-period">2019 – 2022</p>
-      <p class="edu-desc">Science major with emphasis on mathematics and natural sciences.</p>
+
+    <!-- SMA -->
+    <div class="edu-card" id="edu-sma">
+      <div class="edu-card-header" onclick="toggleEdu('edu-sma')">
+        <div class="edu-period-col">2019 — 2022</div>
+        <div class="edu-main-col">
+          <img src="logo_sman1tng.png" class="edu-logo" alt="SMAN 1 Tangerang Logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+          <div class="edu-logo-placeholder" style="display:none;">SMA</div>
+          <div>
+            <div class="edu-name">SMA Negeri 1 Tangerang</div>
+            <div class="edu-degree-sub">Mathematics and Natural Sciences (MIPA) · Tangerang, Indonesia</div>
+          </div>
+        </div>
+        <div class="edu-right-col">
+          <div class="edu-badge">
+            <span class="edu-badge-value">89.14</span>
+            <span class="edu-badge-label">Avg. Score</span>
+          </div>
+          <span class="edu-toggle-icon"><i class="fas fa-chevron-up"></i></span>
+        </div>
+      </div>
+      <div class="edu-card-body">
+        <div class="edu-card-body-inner">
+          <p class="edu-activities-label">Activities &amp; Involvement</p>
+          <ul class="edu-activities-list">
+            <li>Science major with emphasis on mathematics and natural sciences (MIPA)</li>
+            <li>Active participant in school academic programs and extracurricular activities</li>
+          </ul>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -1009,6 +1231,11 @@ Utilized ERP systems to extract, analyze, and report inventory data supporting m
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeLightbox();
   });
+
+  function toggleEdu(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
 
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
