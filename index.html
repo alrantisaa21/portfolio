@@ -260,10 +260,28 @@
     .project-card:hover { border-color: var(--accent); }
     .project-img { width: 100%; height: 180px; object-fit: cover; display: block; filter: grayscale(20%); transition: filter 0.3s; }
     .project-card:hover .project-img { filter: none; }
-    .project-info { padding: 1.5rem; flex: 1; }
+    .project-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .project-name { font-family: var(--font-serif); font-size: 1.25rem; color: var(--text); margin-bottom: 0.3rem; }
     .project-type { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .project-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; text-align: justify; }
+    .project-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; text-align: justify; flex: 1; }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .project-link:hover { color: #e0be85; gap: 0.8rem; }
+    .project-link i { font-size: 0.7rem; }
+
+    /* Project card: no image, just drive link */
+    .project-card.no-img .project-info { border-top: 3px solid var(--accent); }
 
     /* ======== HONORS ======== */
     .honors-list { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -287,12 +305,51 @@
     .honor-photo:hover { border-color: var(--accent); transform: scale(1.03); }
 
     /* ======== CERTIFICATES ======== */
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
-    .cert-item { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-radius: 4px; display: flex; gap: 1rem; align-items: flex-start; transition: border-color 0.25s; }
-    .cert-item:hover { border-color: var(--accent); }
-    .cert-icon { width: 36px; height: 36px; background: rgba(201,169,110,0.12); border-radius: 3px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.9rem; flex-shrink: 0; }
-    .cert-name { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text); margin-bottom: 0.2rem; font-weight: 500; }
-    .cert-issuer { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); }
+    .cert-section-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .cert-drive-wrapper {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .cert-drive-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.2rem;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-drive-toolbar-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .cert-drive-toolbar a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .cert-drive-toolbar a:hover { color: var(--accent); }
+    .cert-drive-iframe {
+      width: 100%;
+      height: 680px;
+      border: none;
+      display: block;
+    }
 
     /* ======== CONTACT ======== */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
@@ -325,6 +382,7 @@
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .honor-item { grid-template-columns: 1fr; }
+      .cert-drive-iframe { height: 420px; }
     }
   </style>
 </head>
@@ -341,6 +399,7 @@
     <li><a href="#organizations">Organizations</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#honors">Honors</a></li>
+    <li><a href="#certificate">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -369,11 +428,6 @@
     </div>
   </div>
   <div class="hero-right">
-    <!-- ======================================================
-         FOTO PROFIL
-         Nama file: foto_profil.jpg
-         Upload file ini ke repository GitHub Anda
-         ====================================================== -->
     <img src="foto_profil.jpg" class="hero-img" alt="Alrantisa Amiena Raisa"/>
   </div>
 </section>
@@ -446,11 +500,6 @@
           Analyzed mental workload of on-site workers related to job scheduling revisions caused by work sequence changes using the RSME (Rating Scale Mental Effort) method at PT PP (Persero) Tbk, specifically at the Biak 50,000 DWT Pier Project. Produced a comprehensive internship report with findings and recommendations.
         </p>
         <div class="exp-photos">
-          <!-- ======================================================
-               FOTO PT PP
-               Nama file: ptpp_foto.jpg
-               Upload file ini ke repository GitHub Anda
-               ====================================================== -->
           <img src="ptpp_foto.jpg" class="exp-photo" alt="PT PP Internship" onclick="openLightbox(this.src)"/>
         </div>
       </div>
@@ -469,11 +518,6 @@
           Conducted Capstone Project (PPT II) at PT Inkoasku, PAKO GROUP. Designed and developed an IC Monitoring Dashboard as an integrated interface between the Infor LN ERP system and Portal E-Warehouse, addressing data reconciliation challenges. Applied Work System Design, ECRS, and process redesign principles to reduce reconciliation cycle time from 117 minutes to 27–40 minutes per session (66–77% reduction).
         </p>
         <div class="exp-photos">
-          <!-- ======================================================
-               FOTO PT INKOASKU / PAKO GROUP
-               Nama file: pako_foto1.jpg  s/d  pako_foto4.jpg
-               Upload ke-4 file ini ke repository GitHub Anda
-               ====================================================== -->
           <img src="pako_foto1.jpg" class="exp-photo" alt="PAKO GROUP Activity 1" onclick="openLightbox(this.src)"/>
           <img src="pako_foto2.jpg" class="exp-photo" alt="PAKO GROUP Activity 2" onclick="openLightbox(this.src)"/>
           <img src="pako_foto3.jpg" class="exp-photo" alt="PAKO GROUP Activity 3" onclick="openLightbox(this.src)"/>
@@ -594,11 +638,6 @@
     <!-- Jalur Cerdas -->
     <div class="org-card">
       <div class="org-photos-grid">
-        <!-- ======================================================
-             FOTO JALUR CERDAS INDONESIA
-             Nama file: jalur_cerdas1.jpg  dan  jalur_cerdas2.jpg
-             Upload ke-2 file ini ke repository GitHub Anda
-             ====================================================== -->
         <img src="jalur_cerdas1.jpg" class="org-photo" alt="Jalur Cerdas 1" onclick="openLightbox(this.src)"/>
         <img src="jalur_cerdas2.jpg" class="org-photo" alt="Jalur Cerdas 2" onclick="openLightbox(this.src)"/>
       </div>
@@ -621,33 +660,47 @@
   </div>
   <div class="projects-grid">
 
+    <!-- 1. IC Monitoring Dashboard – cover dari Google Drive, ada link ke capstone -->
     <div class="project-card">
-      <img src="lpske_module.jpg" class="project-img" alt="IC Monitoring Dashboard"/>
+      <img
+        src="https://drive.google.com/thumbnail?id=1f5DoKYGZv56v3QD9MQPQw9Rxm7SbcCZG&sz=w800"
+        class="project-img"
+        alt="IC Monitoring Dashboard"/>
       <div class="project-info">
         <p class="project-type">Capstone · Dashboard Development</p>
         <h3 class="project-name">IC Monitoring Dashboard — PAKO GROUP</h3>
         <p class="project-desc">Developed a full-stack monitoring dashboard integrating Infor LN ERP and Portal E-Warehouse for PT Inkoasku. Reduced data reconciliation time by 66–77% through process redesign and automation features.</p>
+        <a href="https://alrantisaa21.github.io/CAPSTONE-2/" target="_blank" class="project-link">
+          <i class="fas fa-external-link-alt"></i> View Dashboard
+        </a>
       </div>
     </div>
 
-    <div class="project-card">
-      <img src="lpske_meeting.jpg" class="project-img" alt="Work System Design"/>
+    <!-- 2. Work System Redesign – judul diubah jadi Thesis, tanpa gambar, ada link Drive -->
+    <div class="project-card no-img">
       <div class="project-info">
         <p class="project-type">Thesis · Work System Design</p>
-        <h3 class="project-name">Work System Redesign — PT XYZ (Inkoasku)</h3>
+        <h3 class="project-name">Work System Redesign — Thesis</h3>
         <p class="project-desc">Undergraduate thesis on redesigning the work system in the Inventory Control department to improve effectiveness. Used WSF, Process Mapping, HTA, and ECRS. Validated by expert panel with 4.31/5.00 overall feasibility score.</p>
+        <a href="https://drive.google.com/file/d/1q4GGoC6AMROxWMA61TfS_PY-tpG4dKAV/view?usp=sharing" target="_blank" class="project-link">
+          <i class="fas fa-file-pdf"></i> View Document
+        </a>
       </div>
     </div>
 
-    <div class="project-card">
-      <img src="lpske_lab.jpg" class="project-img" alt="PT PP Internship"/>
+    <!-- 3. Mental Workload Analysis – tanpa gambar, ada link Drive -->
+    <div class="project-card no-img">
       <div class="project-info">
         <p class="project-type">KP Report · Mental Workload Analysis</p>
         <h3 class="project-name">Mental Workload Analysis — PT PP (Persero)</h3>
         <p class="project-desc">Analyzed mental workload of site workers at the Biak 50,000 DWT Pier Project using the RSME method. Identified impacts of job scheduling revisions caused by work sequence changes.</p>
+        <a href="https://drive.google.com/file/d/1kwS2-mtgyGjp2Y9tPozaYPQR-FZ0ZxaT/view?usp=sharing" target="_blank" class="project-link">
+          <i class="fas fa-file-pdf"></i> View Document
+        </a>
       </div>
     </div>
 
+    <!-- 4. Practicum Module -->
     <div class="project-card">
       <img src="lpske_module.jpg" class="project-img" alt="Module Development"/>
       <div class="project-info">
@@ -710,55 +763,28 @@
   </div>
 </section>
 
-<!-- CERTIFICATE -->
+<!-- CERTIFICATE — Google Drive embed -->
 <section id="certificate">
   <div class="section-header">
     <span class="section-num">07</span>
     <h2 class="section-title">Certificates</h2>
   </div>
-  <div class="cert-grid">
-    <div class="cert-item">
-      <div class="cert-icon"><i class="fas fa-certificate"></i></div>
-      <div>
-        <p class="cert-name">Work System Design Practicum</p>
-        <p class="cert-issuer">LPSKE · UNS · 2023</p>
-      </div>
+  <p class="cert-section-desc">
+    Kumpulan sertifikat dapat dilihat langsung melalui tampilan berikut, atau dibuka di Google Drive untuk tampilan penuh.
+  </p>
+  <div class="cert-drive-wrapper">
+    <div class="cert-drive-toolbar">
+      <span class="cert-drive-toolbar-title"><i class="fab fa-google-drive" style="margin-right:0.4rem;"></i>Certificates · Google Drive</span>
+      <a href="https://drive.google.com/file/d/1hz43i539IO3274VB95g8XEuaRrigj-KX/view?usp=sharing" target="_blank">
+        <i class="fas fa-external-link-alt"></i> Open in Drive
+      </a>
     </div>
-    <div class="cert-item">
-      <div class="cert-icon"><i class="fas fa-industry"></i></div>
-      <div>
-        <p class="cert-name">Kerja Praktik — PT PP (Persero) Tbk</p>
-        <p class="cert-issuer">PT PP · Feb–Mar 2025</p>
-      </div>
-    </div>
-    <div class="cert-item">
-      <div class="cert-icon"><i class="fas fa-file-alt"></i></div>
-      <div>
-        <p class="cert-name">Capstone Project — PT Inkoasku PAKO GROUP</p>
-        <p class="cert-issuer">UNS · 2026</p>
-      </div>
-    </div>
-    <div class="cert-item">
-      <div class="cert-icon"><i class="fas fa-trophy"></i></div>
-      <div>
-        <p class="cert-name">Semifinalist Certificate — REIP 2023</p>
-        <p class="cert-issuer">La Victoire Team · 2023</p>
-      </div>
-    </div>
-    <div class="cert-item">
-      <div class="cert-icon"><i class="fas fa-book"></i></div>
-      <div>
-        <p class="cert-name">Publication — IDEC 2025 Conference</p>
-        <p class="cert-issuer">Seminar Nasional IDEC · Sept 2025</p>
-      </div>
-    </div>
-    <div class="cert-item">
-      <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
-      <div>
-        <p class="cert-name">Publication — Work System Design Journal</p>
-        <p class="cert-issuer">International / National · 2026</p>
-      </div>
-    </div>
+    <iframe
+      class="cert-drive-iframe"
+      src="https://drive.google.com/file/d/1hz43i539IO3274VB95g8XEuaRrigj-KX/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
@@ -783,9 +809,10 @@
         <i class="fas fa-envelope"></i>
         <span>aalrantisa@gmail.com</span>
       </a>
-      <a href="https://www.linkedin.com/in/alrantisa-amiena-raisa" target="_blank" class="contact-link">
+      <!-- LinkedIn URL diperbarui -->
+      <a href="https://www.linkedin.com/in/alrantisaar" target="_blank" class="contact-link">
         <i class="fab fa-linkedin"></i>
-        <span>linkedin.com/in/alrantisa-amiena-raisa</span>
+        <span>linkedin.com/in/alrantisaar</span>
       </a>
       <a href="https://github.com/alrantisaa21" target="_blank" class="contact-link">
         <i class="fab fa-github"></i>
