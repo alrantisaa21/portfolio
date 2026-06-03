@@ -734,51 +734,132 @@
     .honor-photo { width: 120px; height: 90px; object-fit: cover; border-radius: 3px; border: 1px solid var(--border); transition: all 0.25s; }
     .honor-photo:hover { border-color: var(--accent); transform: scale(1.03); }
 
-    /* ======== CERTIFICATES ======== */
-    .cert-section-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-    .cert-drive-wrapper {
-      width: 100%;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--surface);
-    }
-    .cert-drive-toolbar {
+    /* ======== CERTIFICATES (NEW CARD DESIGN) ======== */
+    .cert-section-label {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.2rem;
-      background: var(--surface2);
-      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+      margin-bottom: 1.2rem;
     }
-    .cert-drive-toolbar-title {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .cert-section-label::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
     }
-    .cert-drive-toolbar a {
+    .cert-section-label span {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      color: var(--text-muted);
-      text-decoration: none;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .cert-big-title {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      transition: border-color 0.25s;
+    }
+    .cert-card:hover { border-color: rgba(201,169,110,0.4); }
+    .cert-card-img-col {
+      background: var(--surface2);
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: color 0.2s;
+      justify-content: center;
+      padding: 1.5rem;
+      border-right: 1px solid var(--border);
     }
-    .cert-drive-toolbar a:hover { color: var(--accent); }
-    .cert-drive-iframe {
+    .cert-card-img {
       width: 100%;
-      height: 680px;
-      border: none;
-      display: block;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .cert-card-img:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+    .cert-card-info {
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .cert-card-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .cert-card-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .cert-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .cert-detail-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+    }
+    .cert-detail-key { flex-shrink: 0; }
+    .cert-detail-val {
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .cert-detail-val.teal { color: var(--accent2); }
+    .cert-detail-val.blue { color: var(--accent3); }
+    .cert-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.8rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s, gap 0.2s;
+      align-self: flex-start;
+      border: 1px solid rgba(201,169,110,0.3);
+      padding: 0.45rem 1rem;
+      border-radius: 3px;
+    }
+    .cert-card-link:hover { color: #e0be85; gap: 0.8rem; border-color: var(--accent); }
+    @media (max-width: 900px) {
+      .cert-card { grid-template-columns: 1fr; }
+      .cert-card-img-col { border-right: none; border-bottom: 1px solid var(--border); }
+      .cert-big-title { font-size: 2.2rem; }
     }
 
     /* ======== CONTACT ======== */
@@ -1483,26 +1564,147 @@
 
 <!-- CERTIFICATE -->
 <section id="certificate">
-  <div class="section-header">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Certificates</h2>
-  </div>
-  <p class="cert-section-desc">
-    Kumpulan sertifikat dapat dilihat langsung melalui tampilan berikut, atau dibuka di Google Drive untuk tampilan penuh.
-  </p>
-  <div class="cert-drive-wrapper">
-    <div class="cert-drive-toolbar">
-      <span class="cert-drive-toolbar-title"><i class="fab fa-google-drive" style="margin-right:0.4rem;"></i>Certificates · Google Drive</span>
-      <a href="https://drive.google.com/file/d/1hz43i539IO3274VB95g8XEuaRrigj-KX/view?usp=sharing" target="_blank">
-        <i class="fas fa-external-link-alt"></i> Open in Drive
-      </a>
+  <div class="cert-section-label"><span>Professional Certification</span></div>
+  <h2 class="cert-big-title">Certificate</h2>
+
+  <div class="cert-list">
+
+    <!-- 1. BNSP K3/OHS -->
+    <div class="cert-card">
+      <div class="cert-card-img-col">
+        <img
+          src="sertifikat_bnsp.jpg"
+          class="cert-card-img"
+          alt="Sertifikat Kompetensi BNSP K3/OHS"
+          onclick="openLightbox(this.src)"
+          onerror="this.style.opacity='0.3'"
+        />
+      </div>
+      <div class="cert-card-info">
+        <p class="cert-card-issuer">Badan Nasional Sertifikasi Profesi (BNSP)</p>
+        <h3 class="cert-card-title">Sertifikat Kompetensi — K3 / OHS</h3>
+        <div class="cert-detail-list">
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Competency Area:</span>
+            <span class="cert-detail-val teal">Ketenagakerjaan / Employment</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Qualification:</span>
+            <span class="cert-detail-val teal">Kesehatan dan Keselamatan Kerja (K3) / OHS</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Issued by:</span>
+            <span class="cert-detail-val">LSP Universitas Sebelas Maret</span>
+            <span class="cert-detail-key">on behalf of BNSP</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Certificate No.:</span>
+            <span class="cert-detail-val">71201 2263 5 00001554 2026</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Reg. No.:</span>
+            <span class="cert-detail-val">KES 1847 00000142 2026</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Valid for:</span>
+            <span class="cert-detail-val teal">3 (three) Years</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Issued:</span>
+            <span class="cert-detail-val">22 Februari 2026</span>
+            <span class="cert-detail-key">, Surakarta</span>
+          </div>
+        </div>
+        <a href="https://drive.google.com/file/d/1hz43i539IO3274VB95g8XEuaRrigj-KX/view?usp=sharing" target="_blank" class="cert-card-link">
+          <i class="fas fa-external-link-alt"></i> View Certificate
+        </a>
+      </div>
     </div>
-    <iframe
-      class="cert-drive-iframe"
-      src="https://drive.google.com/file/d/1hz43i539IO3274VB95g8XEuaRrigj-KX/preview"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
+
+    <!-- 2. Magang PLUT KUMKM Tabalong -->
+    <div class="cert-card">
+      <div class="cert-card-img-col">
+        <img
+          src="https://drive.google.com/thumbnail?id=1lTcADKIZWP9yq-GaTx9JaRzbcgZ7K_Fh&sz=w600"
+          class="cert-card-img"
+          alt="Sertifikat Magang PLUT KUMKM Tabalong"
+          onclick="openLightbox(this.src)"
+          onerror="this.style.opacity='0.3'"
+        />
+      </div>
+      <div class="cert-card-info">
+        <p class="cert-card-issuer">Dinas Koperasi, UKM, Perindustrian dan Perdagangan Kabupaten Tabalong</p>
+        <h3 class="cert-card-title">Sertifikat Magang — PLUT KUMKM Tabalong</h3>
+        <div class="cert-detail-list">
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Position:</span>
+            <span class="cert-detail-val teal">Social Media Admin / Digital Marketing</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Organization:</span>
+            <span class="cert-detail-val">PLUT KUMKM Tabalong</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Type:</span>
+            <span class="cert-detail-val teal">Internship Certificate</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Period:</span>
+            <span class="cert-detail-val">Agustus – November 2023</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Location:</span>
+            <span class="cert-detail-val">Tabalong, Kalimantan Selatan</span>
+          </div>
+        </div>
+        <a href="https://drive.google.com/file/d/1lTcADKIZWP9yq-GaTx9JaRzbcgZ7K_Fh/view?usp=sharing" target="_blank" class="cert-card-link">
+          <i class="fas fa-external-link-alt"></i> View Certificate
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. Volunteer Metalearn Indonesia -->
+    <div class="cert-card">
+      <div class="cert-card-img-col">
+        <img
+          src="https://drive.google.com/thumbnail?id=14qgf3gfokUegjJEhG-ezre-0zt_gRPbJ&sz=w600"
+          class="cert-card-img"
+          alt="Sertifikat Volunteer Metalearn Indonesia"
+          onclick="openLightbox(this.src)"
+          onerror="this.style.opacity='0.3'"
+        />
+      </div>
+      <div class="cert-card-info">
+        <p class="cert-card-issuer">Metalearn Indonesia · EdTech Platform</p>
+        <h3 class="cert-card-title">Certificate of Appreciation — SNBT Volunteer Mentor</h3>
+        <div class="cert-detail-list">
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Role:</span>
+            <span class="cert-detail-val teal">Volunteer Mentor — Quantitative Reasoning</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Certificate No.:</span>
+            <span class="cert-detail-val">No. 90/02/VOLUNTEER/03/2023</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Type:</span>
+            <span class="cert-detail-val blue">Certificate of Appreciation</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Period:</span>
+            <span class="cert-detail-val">01 March – 31 May 2023</span>
+          </div>
+          <div class="cert-detail-row">
+            <span class="cert-detail-key">Platform:</span>
+            <span class="cert-detail-val">Online (Zoom &amp; Digital Platforms)</span>
+          </div>
+        </div>
+        <a href="https://drive.google.com/file/d/14qgf3gfokUegjJEhG-ezre-0zt_gRPbJ/view?usp=sharing" target="_blank" class="cert-card-link">
+          <i class="fas fa-external-link-alt"></i> View Certificate
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
