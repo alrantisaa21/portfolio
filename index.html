@@ -145,14 +145,9 @@
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Hero Right — Profile Photo */
     .hero-right {
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--surface);
     }
     .hero-right::before {
       content: '';
@@ -169,19 +164,6 @@
       object-position: top center;
       filter: grayscale(15%);
     }
-    /* Fallback / placeholder style if image fails */
-    .hero-img-fallback {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--surface2);
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      text-align: center;
-    }
 
     /* ======== SECTION BASE ======== */
     section {
@@ -194,8 +176,19 @@
       gap: 1.5rem;
       margin-bottom: 4rem;
     }
-    .section-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; }
-    .section-title { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 300; color: var(--text); letter-spacing: -0.01em; }
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
 
     /* ======== EDUCATION ======== */
     .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
@@ -376,18 +369,12 @@
     </div>
   </div>
   <div class="hero-right">
-    <!--
-      FOTO PROFIL: Ganti URL di bawah ini dengan link langsung foto profil Anda.
-      Format Google Drive: https://drive.google.com/uc?export=view&id=FILE_ID
-      Dari folder: https://drive.google.com/drive/folders/1WcUaY7kho09HfawBszOGWspgrTHK33WE
-      Contoh jika file ID foto profil adalah XXXX: https://drive.google.com/uc?export=view&id=XXXX
-    -->
-    <img
-      src="https://drive.google.com/uc?export=view&id=1RX5VcT8nfVeFpQqQnUcVVUcosH3GaceF/view?usp=sharing"
-      class="hero-img"
-      alt="Alrantisa Amiena Raisa"
-      onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'hero-img-fallback\'>📷<br/>Upload foto profil Anda</div>'"
-    />
+    <!-- ======================================================
+         FOTO PROFIL
+         Nama file: foto_profil.jpg
+         Upload file ini ke repository GitHub Anda
+         ====================================================== -->
+    <img src="foto_profil.jpg" class="hero-img" alt="Alrantisa Amiena Raisa"/>
   </div>
 </section>
 
@@ -422,7 +409,6 @@
   <div class="exp-list">
 
     <!-- LPSKE Assistant -->
-    <!-- PERBAIKAN: Foto yang duplikat (lpske_activity4.jpg & lpske_meeting.jpg) sudah dihapus -->
     <div class="exp-item">
       <div class="exp-meta">
         <p class="exp-period">2023 – 2025</p>
@@ -435,20 +421,19 @@
           Served as an assistant at the Laboratory of Work System Design and Ergonomics (LPSKE), Sebelas Maret University. Responsibilities included developing and delivering practicum modules on ergonomics, work system design, time study, and human factors for undergraduate students. Conducted laboratory session facilitation, assisted students in practicum assignments, and contributed to research and administrative tasks within the laboratory.
         </p>
         <div class="exp-photos">
-          <img src="lpske_lab.jpg" class="exp-photo" alt="LPSKE Laboratory" onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity2.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity3.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity4.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
-          <img src="lpske_meeting.jpg" class="exp-photo" alt="LPSKE Meeting" onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity6.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
-          <img src="lpske_activity7.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
-          <img src="lpske_module.jpg" class="exp-photo" alt="Module Creation" onclick="openLightbox(this.src)"/>
+          <img src="lpske_lab.jpg"       class="exp-photo" alt="LPSKE Laboratory"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity2.jpg" class="exp-photo" alt="LPSKE Activity 2"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity3.jpg" class="exp-photo" alt="LPSKE Activity 3"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity4.jpg" class="exp-photo" alt="LPSKE Activity 4"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_meeting.jpg"   class="exp-photo" alt="LPSKE Meeting"     onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity6.jpg" class="exp-photo" alt="LPSKE Activity 6"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_activity7.jpg" class="exp-photo" alt="LPSKE Activity 7"  onclick="openLightbox(this.src)"/>
+          <img src="lpske_module.jpg"    class="exp-photo" alt="Module Creation"   onclick="openLightbox(this.src)"/>
         </div>
       </div>
     </div>
 
     <!-- Intern PT PP -->
-    <!-- PERBAIKAN: Foto diubah ke foto yang benar dari Google Drive -->
     <div class="exp-item">
       <div class="exp-meta">
         <p class="exp-period">Feb – Mar 2025</p>
@@ -461,14 +446,17 @@
           Analyzed mental workload of on-site workers related to job scheduling revisions caused by work sequence changes using the RSME (Rating Scale Mental Effort) method at PT PP (Persero) Tbk, specifically at the Biak 50,000 DWT Pier Project. Produced a comprehensive internship report with findings and recommendations.
         </p>
         <div class="exp-photos">
-          <img src="https://drive.google.com/uc?export=view&id=1sCOUrNp2Qru0DhJNsz7kr_bufD9xY6bK"
-               class="exp-photo" alt="PT PP Internship" onclick="openLightbox(this.src)"/>
+          <!-- ======================================================
+               FOTO PT PP
+               Nama file: ptpp_foto.jpg
+               Upload file ini ke repository GitHub Anda
+               ====================================================== -->
+          <img src="ptpp_foto.jpg" class="exp-photo" alt="PT PP Internship" onclick="openLightbox(this.src)"/>
         </div>
       </div>
     </div>
 
     <!-- Intern PAKO GROUP -->
-    <!-- PERBAIKAN: Judul diubah menjadi "Inventory Control Intern", foto diubah ke yang benar -->
     <div class="exp-item">
       <div class="exp-meta">
         <p class="exp-period">Jan – May 2026</p>
@@ -481,14 +469,15 @@
           Conducted Capstone Project (PPT II) at PT Inkoasku, PAKO GROUP. Designed and developed an IC Monitoring Dashboard as an integrated interface between the Infor LN ERP system and Portal E-Warehouse, addressing data reconciliation challenges. Applied Work System Design, ECRS, and process redesign principles to reduce reconciliation cycle time from 117 minutes to 27–40 minutes per session (66–77% reduction).
         </p>
         <div class="exp-photos">
-          <img src="https://drive.google.com/uc?export=view&id=1MAci0celj3bF2zM11I0HYWM3K77nJalP"
-               class="exp-photo" alt="PAKO GROUP Activity 1" onclick="openLightbox(this.src)"/>
-          <img src="https://drive.google.com/uc?export=view&id=1uSLLBNXIcuN5lnyYeI_JNwC8XUqLdEUh"
-               class="exp-photo" alt="PAKO GROUP Activity 2" onclick="openLightbox(this.src)"/>
-          <img src="https://drive.google.com/uc?export=view&id=1O_uOzSyodp2mqAvVWXwoEqdwAZAWPoC9"
-               class="exp-photo" alt="PAKO GROUP Activity 3" onclick="openLightbox(this.src)"/>
-          <img src="https://drive.google.com/uc?export=view&id=1UTH6fFODYJvI17acwjFfmHW8EXP2hPB1"
-               class="exp-photo" alt="PAKO GROUP Activity 4" onclick="openLightbox(this.src)"/>
+          <!-- ======================================================
+               FOTO PT INKOASKU / PAKO GROUP
+               Nama file: pako_foto1.jpg  s/d  pako_foto4.jpg
+               Upload ke-4 file ini ke repository GitHub Anda
+               ====================================================== -->
+          <img src="pako_foto1.jpg" class="exp-photo" alt="PAKO GROUP Activity 1" onclick="openLightbox(this.src)"/>
+          <img src="pako_foto2.jpg" class="exp-photo" alt="PAKO GROUP Activity 2" onclick="openLightbox(this.src)"/>
+          <img src="pako_foto3.jpg" class="exp-photo" alt="PAKO GROUP Activity 3" onclick="openLightbox(this.src)"/>
+          <img src="pako_foto4.jpg" class="exp-photo" alt="PAKO GROUP Activity 4" onclick="openLightbox(this.src)"/>
         </div>
       </div>
     </div>
@@ -573,10 +562,10 @@
     <!-- LPSKE -->
     <div class="org-card">
       <div class="org-photos-grid">
-        <img src="lpske_lab.jpg" class="org-photo" alt="LPSKE" onclick="openLightbox(this.src)"/>
-        <img src="lpske_meeting.jpg" class="org-photo" alt="LPSKE Rapat" onclick="openLightbox(this.src)"/>
+        <img src="lpske_lab.jpg"       class="org-photo" alt="LPSKE"          onclick="openLightbox(this.src)"/>
+        <img src="lpske_meeting.jpg"   class="org-photo" alt="LPSKE Rapat"    onclick="openLightbox(this.src)"/>
         <img src="lpske_activity7.jpg" class="org-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
-        <img src="lpske_module.jpg" class="org-photo" alt="Membuat Modul" onclick="openLightbox(this.src)"/>
+        <img src="lpske_module.jpg"    class="org-photo" alt="Membuat Modul"  onclick="openLightbox(this.src)"/>
       </div>
       <div class="org-info">
         <h3 class="org-name">LPSKE Laboratory</h3>
@@ -590,9 +579,9 @@
     <div class="org-card">
       <div class="org-photos-grid">
         <img src="inventor1.jpg" class="org-photo" alt="INVENTOR Competition" onclick="openLightbox(this.src)"/>
-        <img src="inventor2.jpg" class="org-photo" alt="INVENTOR" onclick="openLightbox(this.src)"/>
-        <img src="inventor3.jpg" class="org-photo" alt="INVENTOR" onclick="openLightbox(this.src)"/>
-        <img src="idea1.jpg" class="org-photo" alt="IDEA Competition" onclick="openLightbox(this.src)"/>
+        <img src="inventor2.jpg" class="org-photo" alt="INVENTOR"             onclick="openLightbox(this.src)"/>
+        <img src="inventor3.jpg" class="org-photo" alt="INVENTOR"             onclick="openLightbox(this.src)"/>
+        <img src="idea1.jpg"     class="org-photo" alt="IDEA Competition"     onclick="openLightbox(this.src)"/>
       </div>
       <div class="org-info">
         <h3 class="org-name">INVENTOR &amp; IDEA</h3>
@@ -603,13 +592,15 @@
     </div>
 
     <!-- Jalur Cerdas -->
-    <!-- PERBAIKAN: Foto diubah ke 2 foto yang benar dari Google Drive, grid diubah jadi 2 kolom -->
     <div class="org-card">
       <div class="org-photos-grid">
-        <img src="https://drive.google.com/uc?export=view&id=1X_7LVm4elFBtfiEBX0zo2ukgZxV140Wc"
-             class="org-photo" alt="Jalur Cerdas 1" onclick="openLightbox(this.src)"/>
-        <img src="https://drive.google.com/uc?export=view&id=1LOC70EQn2i3ztRmbnrjNTpoVdTnf3voU"
-             class="org-photo" alt="Jalur Cerdas 2" onclick="openLightbox(this.src)"/>
+        <!-- ======================================================
+             FOTO JALUR CERDAS INDONESIA
+             Nama file: jalur_cerdas1.jpg  dan  jalur_cerdas2.jpg
+             Upload ke-2 file ini ke repository GitHub Anda
+             ====================================================== -->
+        <img src="jalur_cerdas1.jpg" class="org-photo" alt="Jalur Cerdas 1" onclick="openLightbox(this.src)"/>
+        <img src="jalur_cerdas2.jpg" class="org-photo" alt="Jalur Cerdas 2" onclick="openLightbox(this.src)"/>
       </div>
       <div class="org-info">
         <h3 class="org-name">Jalur Cerdas Indonesia</h3>
