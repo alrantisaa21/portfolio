@@ -27,7 +27,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-links a:hover{color:var(--gold)}
 
 /* HERO */
-#hero{min-height:100vh;display:grid;grid-template-columns:1fr 360px;align-items:center;padding:80px 3rem 3rem;gap:3rem}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 340px;align-items:center;padding:80px 3rem 3rem;gap:2rem}
 .hero-eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.7rem}
 .hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
 .hero-name{font-family:var(--serif);font-size:clamp(2.6rem,4vw,4.6rem);font-weight:700;line-height:1.06;margin-bottom:0.4rem}
@@ -42,9 +42,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .btn-o{padding:0.65rem 1.7rem;background:transparent;color:var(--white);font-family:var(--sans);font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:0.5px solid rgba(245,242,237,0.3);transition:border-color .2s,color .2s}
 .btn-o:hover{border-color:var(--accent2);color:var(--accent2)}
 .hero-photo-col{position:relative}
-.hero-photo-frame{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;border:0.5px solid rgba(74,143,212,0.25)}
-.hero-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-
+.hero-photo-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border:0.5px solid rgba(74,143,212,0.25)}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;outline:none;border:none}
+.hero-photo-col::before,.hero-photo-col::after,.hero-photo-frame::before,.hero-photo-frame::after{display:none!important}
+  
 /* SECTION BASE */
 section{padding:5.5rem 3rem}
 .sec-label{font-size:0.67rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.45rem;display:flex;align-items:center;gap:0.6rem}
