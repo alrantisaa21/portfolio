@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alrantisa Amiena Raisa | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #0e0e0f;
+      --surface: #161618;
+      --surface2: #1e1e21;
+      --border: #2a2a2e;
+      --accent: #c9a96e;
+      --accent2: #7eb8a4;
+      --text: #e8e4df;
+      --text-muted: #888884;
+      --text-dim: #555552;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ======== NAV ======== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(14,14,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ======== HERO ======== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 6rem;
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent2);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-serif);
+      font-size: 4.5rem;
+      line-height: 1.05;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.8rem;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #e0be85;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, var(--accent) 200%);
+      z-index: 1;
+      opacity: 0.08;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(15%);
+    }
+
+    /* ======== SECTION BASE ======== */
+    section {
+      padding: 6rem 6rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    /* ======== EDUCATION ======== */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 4px;
+      transition: border-color 0.25s;
+    }
+
+    .edu-card:hover { border-color: var(--accent); }
+
+    .edu-degree {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-school {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-period {
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      margin-bottom: 1rem;
+    }
+
+    .edu-desc { color: var(--text-muted); font-size: 0.87rem; }
+
+    /* ======== EXPERIENCE ======== */
+    .exp-list { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-meta {}
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .exp-company {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .exp-content {}
+
+    .exp-role {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-dept {
+      font-size: 0.8rem;
+      color: var(--accent2);
+      font-family: var(--font-mono);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .exp-desc {
+      color: var(--text-muted);
+      font-size: 0.87rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .exp-photos {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .exp-photo {
+      width: 90px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+      filter: grayscale(20%);
+    }
+
+    .exp-photo:hover {
+      transform: scale(1.05);
+      border-color: var(--accent);
+      filter: none;
+    }
+
+    /* ======== SKILLS ======== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-cat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      border-radius: 4px;
+    }
+
+    .skill-cat-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .skill-item {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 2px;
+      font-family: var(--font-mono);
+    }
+
+    /* ======== ORGANIZATIONS ======== */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .org-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+
+    .org-card:hover { border-color: var(--accent); }
+
+    .org-photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      max-height: 220px;
+      overflow: hidden;
+    }
+
+    .org-photos-grid.single { grid-template-columns: 1fr; }
+
+    .org-photo {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+
+    .org-card:hover .org-photo { filter: none; }
+
+    .org-info { padding: 1.5rem; }
+
+    .org-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .org-role {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .org-period {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-bottom: 0.8rem;
+    }
+
+    .org-desc { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* ======== PROJECTS ======== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover { border-color: var(--accent); }
+
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+
+    .project-card:hover .project-img { filter: none; }
+
+    .project-info { padding: 1.5rem; flex: 1; }
+
+    .project-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .project-type {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; }
+
+    /* ======== HONORS ======== */
+    .honors-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .honor-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      border-radius: 4px;
+      transition: border-color 0.25s;
+    }
+
+    .honor-item:hover { border-color: var(--accent); }
+
+    .honor-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .honor-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .honor-desc { color: var(--text-muted); font-size: 0.85rem; }
+
+    .honor-photos {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .honor-photo {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .honor-photo:hover {
+      border-color: var(--accent);
+      transform: scale(1.03);
+    }
+
+    /* ======== CERTIFICATE ======== */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .cert-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 4px;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.25s;
+    }
+
+    .cert-item:hover { border-color: var(--accent); }
+
+    .cert-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(201,169,110,0.12);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      font-weight: 500;
+    }
+
+    .cert-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    /* ======== CONTACT ======== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-text {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--text);
+      line-height: 1.4;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-link:hover { color: var(--accent); }
+
+    .contact-link i { color: var(--accent); width: 16px; }
+
+    /* ======== LIGHTBOX ======== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s;
+    }
+
+    .lightbox-close:hover { color: var(--accent); }
+
+    /* ======== FOOTER ======== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+    }
+
+    /* ======== RESPONSIVE ======== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vh; }
+      .hero-left { padding: 3rem 2rem; }
+      section { padding: 4rem 2rem; }
+      footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .honor-item { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Alrantisa Amiena Raisa</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#organizations">Organizations</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#honors">Honors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO / ABOUT -->
+<section class="hero" id="about">
+  <div class="hero-left">
+    <p class="hero-label">Industrial Engineering · UNS Surakarta</p>
+    <h1 class="hero-name">Alrantisa<br/><em>Amiena Raisa</em></h1>
+    <p class="hero-title">Supply Chain &amp; Industrial Engineering Professional</p>
+    <p class="hero-desc">
+      Final-year Industrial Engineering student at Sebelas Maret University with practical experience in Supply Chain Operations, Inventory Control, Production Planning, Procurement, and ERP-based business processes. I develop expertise in process improvement, dashboard development, and work system design.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Supply Chain</span>
+      <span class="tag">Work System Design</span>
+      <span class="tag">Ergonomics</span>
+      <span class="tag">PPIC</span>
+      <span class="tag">HSSE / K3</span>
+      <span class="tag">Procurement</span>
+      <span class="tag">Data Analytics</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABRyVFJDAAABUAAAAChnVFJDAAABUAAAAChiVFJDAAABUAAAACh3dHB0AAABeAAAABRjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoH7wYLDQ0MDQsLCw4RExAODxEOCwsQFhARExcYGBgMEBIaHRsdGBQWGBb/2wBDAQMEBAUEBQkFBQkWDQsNFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhb/wAARCAFQAlgDASIAAhEBAxEB/8QAHAAAAgMBAQEBAAAAAAAAAAAABAUDBgIBAAf/xABLEAACAQMDAgMFBgQEBAMGBwABAgMABBEFEiExBhNBUWEicYGRoRQjMkKxwfAHUmLR4RUzkqLCFiQlQ0RUY3KDo9IXJkVTZHP/" class="hero-img" alt="Alrantisa Amiena Raisa"/>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="edu-school">Sebelas Maret University</p>
+      <h3 class="edu-degree">Bachelor of Industrial Engineering</h3>
+      <p class="edu-period">2022 – 2026 (Expected)</p>
+      <p class="edu-desc">Program Studi Sarjana Teknik Industri, Fakultas Teknik. Focus on Work System Design, Ergonomics, Supply Chain, and Operations Research. GPA: 3.8+/4.0</p>
+    </div>
+    <div class="edu-card">
+      <p class="edu-school">SMA Negeri</p>
+      <h3 class="edu-degree">Senior High School</h3>
+      <p class="edu-period">2019 – 2022</p>
+      <p class="edu-desc">Science major with emphasis on mathematics and natural sciences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-list">
+
+    <!-- LPSKE Assistant -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">2023 – 2025</p>
+        <p class="exp-company">UNS · Surakarta</p>
+      </div>
+      <div class="exp-content">
+        <h3 class="exp-role">Laboratory Assistant</h3>
+        <p class="exp-dept">Work System Design &amp; Ergonomics Laboratory (LPSKE)</p>
+        <p class="exp-desc">
+          Served as an assistant at the Laboratory of Work System Design and Ergonomics (LPSKE), Sebelas Maret University. Responsibilities included developing and delivering practicum modules on ergonomics, work system design, time study, and human factors for undergraduate students. Conducted laboratory session facilitation, assisted students in practicum assignments, and contributed to research and administrative tasks within the laboratory.
+        </p>
+        <div class="exp-photos">
+          <img src="img/lpske_lab.jpg" class="exp-photo" alt="LPSKE Laboratory" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity2.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity3.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity4.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_meeting.jpg" class="exp-photo" alt="LPSKE Meeting" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity4.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_meeting.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity6.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity7.jpg" class="exp-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_module.jpg" class="exp-photo" alt="Module Creation" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intern PT PP -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">Feb – Mar 2025</p>
+        <p class="exp-company">PT PP (Persero) Tbk</p>
+      </div>
+      <div class="exp-content">
+        <h3 class="exp-role">Industrial Engineering Intern</h3>
+        <p class="exp-dept">Divisi EPC · Proyek Dermaga Biak 50.000 DWT</p>
+        <p class="exp-desc">
+          Analyzed mental workload of on-site workers related to job scheduling revisions caused by work sequence changes using the RSME (Rating Scale Mental Effort) method at PT PP (Persero) Tbk, specifically at the Biak 50,000 DWT Pier Project. Produced a comprehensive internship report with findings and recommendations.
+        </p>
+        <div class="exp-photos">
+          <img src="img/lpske_lab.jpg" class="exp-photo" alt="PT PP Internship" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intern PAKO GROUP -->
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-period">Jan – May 2026</p>
+        <p class="exp-company">PT Inkoasku · PAKO GROUP</p>
+      </div>
+      <div class="exp-content">
+        <h3 class="exp-role">Capstone Project Intern</h3>
+        <p class="exp-dept">Inventory Control Department</p>
+        <p class="exp-desc">
+          Conducted Capstone Project (PPT II) at PT Inkoasku, PAKO GROUP. Designed and developed an IC Monitoring Dashboard as an integrated interface between the Infor LN ERP system and Portal E-Warehouse, addressing data reconciliation challenges. Applied Work System Design, ECRS, and process redesign principles to reduce reconciliation cycle time from 117 minutes to 27–40 minutes per session (66–77% reduction).
+        </p>
+        <div class="exp-photos">
+          <img src="img/lpske_activity6.jpg" class="exp-photo" alt="PAKO GROUP Internship" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity7.jpg" class="exp-photo" alt="PAKO GROUP Activity 1" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity2.jpg" class="exp-photo" alt="PAKO GROUP Activity 2" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity3.jpg" class="exp-photo" alt="PAKO GROUP Activity 3" onclick="openLightbox(this.src)"/>
+          <img src="img/lpske_activity4.jpg" class="exp-photo" alt="PAKO GROUP Activity 4" onclick="openLightbox(this.src)"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cat">
+      <p class="skill-cat-title">Industrial Engineering</p>
+      <div class="skill-items">
+        <span class="skill-item">Work System Design</span>
+        <span class="skill-item">Ergonomics</span>
+        <span class="skill-item">FMEA</span>
+        <span class="skill-item">FTA</span>
+        <span class="skill-item">HTA</span>
+        <span class="skill-item">ECRS</span>
+        <span class="skill-item">Time Study</span>
+        <span class="skill-item">Process Mapping</span>
+        <span class="skill-item">Lean Manufacturing</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <p class="skill-cat-title">Supply Chain &amp; Operations</p>
+      <div class="skill-items">
+        <span class="skill-item">Inventory Control</span>
+        <span class="skill-item">PPIC</span>
+        <span class="skill-item">Procurement</span>
+        <span class="skill-item">ERP (Infor LN)</span>
+        <span class="skill-item">Supply Chain Mgmt</span>
+        <span class="skill-item">Demand Planning</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <p class="skill-cat-title">Data &amp; Analytics</p>
+      <div class="skill-items">
+        <span class="skill-item">Microsoft Excel</span>
+        <span class="skill-item">Dashboard Dev</span>
+        <span class="skill-item">SPC / Control Chart</span>
+        <span class="skill-item">DPMO</span>
+        <span class="skill-item">Statistical Analysis</span>
+        <span class="skill-item">Python (Basic)</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <p class="skill-cat-title">Safety &amp; Quality</p>
+      <div class="skill-items">
+        <span class="skill-item">HSSE / K3</span>
+        <span class="skill-item">Quality Control</span>
+        <span class="skill-item">5W+1H</span>
+        <span class="skill-item">SOP Development</span>
+        <span class="skill-item">Expert Panel Validation</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <p class="skill-cat-title">Soft Skills</p>
+      <div class="skill-items">
+        <span class="skill-item">Research &amp; Writing</span>
+        <span class="skill-item">Cross-functional Collab</span>
+        <span class="skill-item">Teaching &amp; Facilitation</span>
+        <span class="skill-item">Problem Solving</span>
+        <span class="skill-item">Presentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZATIONS -->
+<section id="organizations">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Organizations</h2>
+  </div>
+  <div class="org-grid">
+
+    <!-- LPSKE -->
+    <div class="org-card">
+      <div class="org-photos-grid">
+        <img src="img/lpske_lab.jpg" class="org-photo" alt="LPSKE" onclick="openLightbox(this.src)"/>
+        <img src="img/lpske_meeting.jpg" class="org-photo" alt="LPSKE Rapat" onclick="openLightbox(this.src)"/>
+        <img src="img/lpske_activity7.jpg" class="org-photo" alt="LPSKE Activity" onclick="openLightbox(this.src)"/>
+        <img src="img/lpske_module.jpg" class="org-photo" alt="Membuat Modul" onclick="openLightbox(this.src)"/>
+      </div>
+      <div class="org-info">
+        <h3 class="org-name">LPSKE Laboratory</h3>
+        <p class="org-role">Laboratory Assistant</p>
+        <p class="org-period">Work System Design &amp; Ergonomics · UNS · 2023–2025</p>
+        <p class="org-desc">Member of the Laboratory of Work System Design and Ergonomics, developing practicum modules, facilitating student sessions, and conducting ergonomics-related research.</p>
+      </div>
+    </div>
+
+    <!-- INVENTOR -->
+    <div class="org-card">
+      <div class="org-photos-grid">
+        <img src="img/inventor1.jpg" class="org-photo" alt="INVENTOR Competition" onclick="openLightbox(this.src)"/>
+        <img src="img/inventor2.jpg" class="org-photo" alt="INVENTOR" onclick="openLightbox(this.src)"/>
+        <img src="img/inventor3.jpg" class="org-photo" alt="INVENTOR" onclick="openLightbox(this.src)"/>
+        <img src="img/idea1.jpg" class="org-photo" alt="IDEA Competition" onclick="openLightbox(this.src)"/>
+      </div>
+      <div class="org-info">
+        <h3 class="org-name">INVENTOR &amp; IDEA</h3>
+        <p class="org-role">Competition Participant</p>
+        <p class="org-period">National Student Competition · 2023–2024</p>
+        <p class="org-desc">Participated in INVENTOR and IDEA national competitions, engaging in industrial engineering problem-solving challenges and innovation projects.</p>
+      </div>
+    </div>
+
+    <!-- Jalur Cerdas -->
+    <div class="org-card">
+      <div class="org-photos-grid single">
+        <img src="img/idea1.jpg" class="org-photo" style="height:220px" alt="Jalur Cerdas" onclick="openLightbox(this.src)"/>
+      </div>
+      <div class="org-info">
+        <h3 class="org-name">Jalur Cerdas Indonesia</h3>
+        <p class="org-role">Participant</p>
+        <p class="org-period">National Program · 2023</p>
+        <p class="org-desc">Participated in the Jalur Cerdas Indonesia national program, contributing to educational and innovation initiatives at the national level.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <img src="img/lpske_module.jpg" class="project-img" alt="IC Monitoring Dashboard"/>
+      <div class="project-info">
+        <p class="project-type">Capstone · Dashboard Development</p>
+        <h3 class="project-name">IC Monitoring Dashboard — PAKO GROUP</h3>
+        <p class="project-desc">Developed a full-stack monitoring dashboard integrating Infor LN ERP and Portal E-Warehouse for PT Inkoasku. Reduced data reconciliation time by 66–77% through process redesign and automation features.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/lpske_meeting.jpg" class="project-img" alt="Work System Design"/>
+      <div class="project-info">
+        <p class="project-type">Thesis · Work System Design</p>
+        <h3 class="project-name">Work System Redesign — PT XYZ (Inkoasku)</h3>
+        <p class="project-desc">Undergraduate thesis on redesigning the work system in the Inventory Control department to improve effectiveness. Used WSF, Process Mapping, HTA, and ECRS. Validated by expert panel with 4.31/5.00 overall feasibility score.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/lpske_lab.jpg" class="project-img" alt="PT PP Internship"/>
+      <div class="project-info">
+        <p class="project-type">KP Report · Mental Workload Analysis</p>
+        <h3 class="project-name">Mental Workload Analysis — PT PP (Persero)</h3>
+        <p class="project-desc">Analyzed mental workload of site workers at the Biak 50,000 DWT Pier Project using the RSME method. Identified impacts of job scheduling revisions caused by work sequence changes.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="img/lpske_module.jpg" class="project-img" alt="Module Development"/>
+      <div class="project-info">
+        <p class="project-type">Academic · Module Development</p>
+        <h3 class="project-name">Practicum Module — LPSKE Laboratory</h3>
+        <p class="project-desc">Developed comprehensive practicum modules for Work System Design and Ergonomics Laboratory. Topics include ergonomics assessment, time study, workload analysis, and human factors engineering.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HONORS -->
+<section id="honors">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Honors &amp; Awards</h2>
+  </div>
+  <div class="honors-list">
+
+    <!-- Published Paper PT XYZ -->
+    <div class="honor-item">
+      <div>
+        <h3 class="honor-title">Published Paper — Work System Design, PT XYZ</h3>
+        <p class="honor-issuer">International / National Journal · 2026</p>
+        <p class="honor-desc">
+          "Redesigning the Work System in the Inventory Control (IC) Department to Improve Effectiveness at PT XYZ." Co-authored with Irwan Iftadi. Covers dual ERP system challenges, process redesign with ECRS principles, and dashboard development for inventory reconciliation. 66–77% reduction in cycle time.
+        </p>
+      </div>
+      <div class="honor-photos">
+        <img src="img/paper_xyz.png" class="honor-photo" alt="Published Paper PT XYZ" onclick="openLightbox(this.src)"/>
+      </div>
+    </div>
+
+    <!-- Published Paper IDEC -->
+    <div class="honor-item">
+      <div>
+        <h3 class="honor-title">Published Paper — IDEC 2025 National Conference</h3>
+        <p class="honor-issuer">Seminar Nasional IDEC 2025 · ISSN: 2579-6429 · September 2025</p>
+        <p class="honor-desc">
+          "Analisis Pengendalian Kualitas Produk IB079RA di PT Surya Toto Indonesia Tbk." Co-authored with Danish Faizi Adinata, Alamsyah Riyo Saputra, Deanieta Adilest, and Khansa Bashira Pondavi. Analyzed defect rates, FMEA, FTA, DPMO, and U-Chart, with 5W+1H improvement recommendations.
+        </p>
+      </div>
+      <div class="honor-photos">
+        <img src="img/paper_idec.png" class="honor-photo" alt="Published Paper IDEC" onclick="openLightbox(this.src)"/>
+      </div>
+    </div>
+
+    <!-- Semifinalist REIP 2023 -->
+    <div class="honor-item">
+      <div>
+        <h3 class="honor-title">Semifinalist — REIP 2023</h3>
+        <p class="honor-issuer">La Victoire Team · Surabaya · 2023</p>
+        <p class="honor-desc">
+          Certificate of Achievement as Semifinalist in REIP 2023 — "Escalating Indonesia's Energy Transformation to reach Renewable Energy Mix by 2025." Recognized by La Victoire Team for outstanding achievement in the energy innovation competition.
+        </p>
+      </div>
+      <div class="honor-photos">
+        <img src="img/semifinal_reip.jpg" class="honor-photo" alt="Semifinalist REIP 2023" onclick="openLightbox(this.src)"/>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATE -->
+<section id="certificate">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Certificates</h2>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-item">
+      <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+      <div>
+        <p class="cert-name">Work System Design Practicum</p>
+        <p class="cert-issuer">LPSKE · UNS · 2023</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon"><i class="fas fa-industry"></i></div>
+      <div>
+        <p class="cert-name">Kerja Praktik — PT PP (Persero) Tbk</p>
+        <p class="cert-issuer">PT PP · Feb–Mar 2025</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon"><i class="fas fa-file-alt"></i></div>
+      <div>
+        <p class="cert-name">Capstone Project — PT Inkoasku PAKO GROUP</p>
+        <p class="cert-issuer">UNS · 2026</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon"><i class="fas fa-trophy"></i></div>
+      <div>
+        <p class="cert-name">Semifinalist Certificate — REIP 2023</p>
+        <p class="cert-issuer">La Victoire Team · 2023</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon"><i class="fas fa-book"></i></div>
+      <div>
+        <p class="cert-name">Publication — IDEC 2025 Conference</p>
+        <p class="cert-issuer">Seminar Nasional IDEC · Sept 2025</p>
+      </div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div>
+        <p class="cert-name">Publication — Work System Design Journal</p>
+        <p class="cert-issuer">International / National · 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-text">Let's collaborate on something meaningful.</p>
+      <p class="contact-sub">Open to internship opportunities, research collaborations, and full-time positions in Supply Chain, Industrial Engineering, and Work System Design.</p>
+      <a href="mailto:alrantisaar@student.uns.ac.id" class="btn btn-primary">Send Email</a>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:alrantisaar@student.uns.ac.id" class="contact-link">
+        <i class="fas fa-envelope"></i>
+        <span>alrantisaar@student.uns.ac.id</span>
+      </a>
+      <a href="mailto:aalrantisa@gmail.com" class="contact-link">
+        <i class="fas fa-envelope"></i>
+        <span>aalrantisa@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/alrantisa-amiena-raisa" target="_blank" class="contact-link">
+        <i class="fab fa-linkedin"></i>
+        <span>linkedin.com/in/alrantisa-amiena-raisa</span>
+      </a>
+      <a href="https://github.com/alrantisaa21" target="_blank" class="contact-link">
+        <i class="fab fa-github"></i>
+        <span>github.com/alrantisaa21</span>
+      </a>
+      <a href="#" class="contact-link">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Surakarta, Central Java, Indonesia</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Alrantisa Amiena Raisa · Industrial Engineering, UNS</span>
+  <span>Portfolio · Supply Chain &amp; Work System Design</span>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
