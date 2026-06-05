@@ -149,6 +149,9 @@
     .hero-right {
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
     .hero-right::before {
       content: '';
@@ -173,6 +176,8 @@
       object-position: top center;
       filter: grayscale(15%);
       display: block;
+      max-width: 480px;
+      margin-left: auto;
     }
 
     /* ======== SECTION BASE ======== */
